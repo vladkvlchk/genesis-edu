@@ -1,0 +1,11 @@
+.page{
+    min-height: 100vh;
+
+    .courses{
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 650px;
+        margin: auto;
+
+    }
+}

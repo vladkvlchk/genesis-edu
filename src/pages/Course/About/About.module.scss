@@ -1,0 +1,42 @@
+.page {
+  h1,
+  p,
+  i,
+  li,
+  .skills,
+  .description {
+    margin: 12px 32px;
+  }
+
+  i {
+    opacity: 0.9;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .player {
+    margin: 32px;
+  }
+}
+
+.rating {
+  color: gold;
+  display: flex;
+  align-items: center;
+  img {
+    height: 22px;
+  }
+}
+
+video {
+  margin: 30px !important;
+  width: calc(100% - 60px) !important;
+  height: auto !important;
+}
+
+:global .react-player__preview {
+  min-height: 500px;
+}

@@ -1,0 +1,78 @@
+.item {
+  min-height: 320px;
+  width: 272px;
+  margin: 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+  }
+
+  .mainPhoto {
+    height: 240px;
+    overflow: hidden;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about {
+    background-color: rgb(50, 50, 50);
+    min-height: 160px;
+    height: 400%;
+    color: #fff;
+
+    h3 {
+      overflow-y: auto;
+      max-height: 2.5em;
+      margin: 0 8px;
+    }
+
+    .lessonsAmount{
+        margin-left: 12px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      color: gold;
+      margin-left: 12px;
+
+      img {
+        height: 16px;
+        width: 16px;
+        margin: 2px;
+      }
+    }
+
+    .skill {
+      display: flex;
+      overflow-wrap: break-word;
+      margin-left: 8px;
+      align-items: center;
+
+      p {
+        margin: 12px 2px;
+      }
+
+      img {
+        height: 16px;
+        width: 16px !important;
+        margin: 2px;
+      }
+    }
+
+    p.pCenter {
+      align-self: center;
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
