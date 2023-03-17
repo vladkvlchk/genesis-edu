@@ -7,7 +7,7 @@ import Video from "../../../components/Video";
 import { AboutType } from "./types";
 
 const About: React.FC<AboutType> = ({title, tags, launchDate, videoLink, description, rating, skills, previewImageLink}) => {
-    //const testUrl = 'https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8'
+    // const testUrl = 'https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8'
     return (
     <div className={styles.page}>
       <h1>{title}</h1>
@@ -21,7 +21,7 @@ const About: React.FC<AboutType> = ({title, tags, launchDate, videoLink, descrip
       </p>
       <p>launch date: <strong>{launchDate}</strong></p>
       <div className={styles.player}>
-        <Video url={videoLink} preview={previewImageLink + '/' + 'lesson-1' + '.webp'}/>  
+        <Video url={videoLink} preview={`${previewImageLink}/lesson-1.webp`}/>
       </div>
 
       <strong className={styles.description}>DESCRIPTION:</strong>

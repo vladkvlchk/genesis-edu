@@ -6,15 +6,7 @@ import skillUrl from "../../accepts/check_circle.svg";
 import starUrlFilled from "../../accepts/star_filled.svg";
 import starUrlHalf from "../../accepts/star_half.svg";
 import starUrlEmpty from "../../accepts/star_empty.svg";
-
-interface Course {
-  id: string;
-  title: string;
-  previewImageLink: string;
-  lessonsCount: number;
-  rating: number;
-  skills: string[];
-}
+import { Course } from "./types";
 
 const CourseItem: React.FC<Course> = ({
   id,

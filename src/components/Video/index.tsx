@@ -1,44 +1,33 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import { SpeedContext } from "../../App";
 
 import styles from "./Video.module.scss";
 
 const Video: React.FC<any> = ({ url, preview }) => {
-  const [playbackRate, setPlaybackRate] = React.useState<number>(1);
+  const speed = React.useContext(SpeedContext)
+  const ref = React.useRef(null);
 
-  const onSpeedDown = () => {
-    if (playbackRate > 0.2) {
-      setPlaybackRate(Math.floor((playbackRate - 0.1) * 10) / 10);
-    }
-  };
-
-  const onSpeedUp = () => {
-    if (playbackRate < 3) {
-      setPlaybackRate(Math.floor((playbackRate + 0.1) * 10) / 10);
-    }
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "ArrowDown") {
-      onSpeedDown();
-    } else if (event.key === "ArrowUp") {
-      onSpeedUp();
-    }
-  };
+  const focusItself = () => {
+    ref.current.focus();
+    console.log('focus')
+  }
 
   return (
-    <div className={styles.player}>
+    <div ref={ref} className={styles.player}>
       <ReactPlayer
         url={url}
         controls={true}
-        playing={false}
+        playing={true}
         pip={true}
-        light={preview}
+        // light={preview}
         width={"100%"}
         height={"100%"}
-        playbackRate={playbackRate}
-        onKeyDown={handleKeyPress}
+        playbackRate={speed.value}
+        onPlay={() => focusItself()}
+        onStart={() => console.log('start')}
       />
+      <p className={styles.hint}>Speed up: <b>Shift</b> + <b>Z</b>; Speed Down: <b>Shift</b> + <b>X</b></p>
     </div>
   );
 };

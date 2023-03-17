@@ -1,3 +1,8 @@
-.player{
-    width: 100%;
+.player {
+  width: 100%;
+
+  .hint {
+    transform: translate(-50%, -40px);
+    margin-left: 50%;
+  }
 }
