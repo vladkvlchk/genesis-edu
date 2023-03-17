@@ -5,6 +5,7 @@ import axios from "../../axios";
 import About from "./About";
 import Lesson from "./Lesson";
 import { AboutType, LessonType } from "./types";
+import Loader from "../../components/Loader";
 
 const Course: React.FC = () => {
   const { courseId } = useParams();
@@ -65,9 +66,8 @@ const Course: React.FC = () => {
 
   getData();
 
-//   I HAVE TO DEVELOP GREAT LOADING PAGE
-  if (isLoading) {
-    return <p>loading...</p>;
+  if(isLoading){
+    return <Loader />
   }
 
   return (
