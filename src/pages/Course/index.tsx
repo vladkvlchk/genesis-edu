@@ -58,7 +58,7 @@ const Course: React.FC = () => {
     return day + "." + month + "." + year + " " + hours + ":" + mins;
   };
 
-  const onClickLesson = (event: any, id, status) => {
+  const onClickLesson = (id : string, status: string) => {
     if (status === "unlocked"){
         setCurrentLessonId(id)
     }
@@ -85,7 +85,7 @@ const Course: React.FC = () => {
                 <li
                   key={lesson.id}
                   className={`${currentLessonId === lesson.id ? styles.selected + " " : ""}${styles[lesson.status]}`}
-                  onClick={(event) => onClickLesson(event, lesson.id, lesson.status)}
+                  onClick={() => onClickLesson(lesson.id, lesson.status)}
                 >
                   {lesson.status === 'locked' ? "🔒" : ""}Lesson {String(lesson.order)}: {lesson.title}
                 </li>
