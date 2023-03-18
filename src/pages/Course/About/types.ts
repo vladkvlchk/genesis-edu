@@ -4,7 +4,7 @@ export interface AboutType{
     launchDate: String;
     videoLink: string;
     description: String;
-    rating: Number;
+    rating: number;
     skills: string[];
     previewImageLink: string;
 }

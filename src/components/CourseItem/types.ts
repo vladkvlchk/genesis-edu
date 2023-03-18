@@ -3,6 +3,7 @@ export interface Course {
     title: string;
     previewImageLink: string;
     lessonsCount: number;
+    description: string;
     rating: number;
     skills: string[];
   }

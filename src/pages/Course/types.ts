@@ -7,7 +7,7 @@ export interface AboutType {
   description: String;
   duration: number;
   previewImageLink: string;
-  rating: Number;
+  rating: number;
   meta: {
     slug: string;
     skills: string[];

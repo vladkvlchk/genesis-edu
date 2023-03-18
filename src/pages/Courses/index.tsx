@@ -21,32 +21,38 @@ const Courses: React.FC = () => {
   React.useEffect(() => {
     getCourses();
   }, []);
-
   return (
-    <div className={styles.page}>
-      <div className={styles.courses}>
-        {isLoading ? <Loader /> :
-          courses
-            .slice(10 * +currentPage, 10 + 10 * +currentPage)
-            ?.map((course: CourseType) => {
-              return (
-                <CourseItem
-                  key={course.id}
-                  id={course.id}
-                  title={course.title}
-                  previewImageLink={course.previewImageLink}
-                  lessonsCount={course.lessonsCount}
-                  rating={course.rating}
-                  skills={course.meta.skills}
-                />
-              );
-            })}
+    <section className={styles.coursesPage}>
+      <div className={styles.container}>
+        <h2>Courses</h2>
+        <div className={styles.courses}>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            courses
+              .slice(12 * +currentPage, 12 * (+currentPage + 1))
+              ?.map((course: CourseType) => {
+                return (
+                  <CourseItem
+                    key={course.id}
+                    id={course.id}
+                    title={course.title}
+                    previewImageLink={course.previewImageLink}
+                    lessonsCount={course.lessonsCount}
+                    rating={course.rating}
+                    skills={course.meta.skills}
+                    description={course.description}
+                  />
+                );
+              })
+          )}
+        </div>
+        <Pagination
+          onChange={(page: number) => setCurrentPage(page)}
+          countOfPages={Math.ceil(courses.length / 10)}
+        />
       </div>
-      <Pagination
-        onChange={(page: number) => setCurrentPage(page)}
-        countOfPages={Math.ceil(courses.length / 10)}
-      />
-    </div>
+    </section>
   );
 };
 

@@ -12,13 +12,35 @@ const About: React.FC<AboutType> = ({title, tags, launchDate, videoLink, descrip
     <div className={styles.page}>
       <h1>{title}</h1>
       <i className={styles.tags}>{tags?.map((t) => "#" + t).join(", ") || "#no_tags"}</i>
-      <p className={styles.rating}>{String(rating)}{" "}
-        <img src={ rating >= 1 ? starUrlFilled : rating === 0.5 ? starUrlHalf : starUrlEmpty} alt="star" />
-        <img src={ rating >= 2 ? starUrlFilled : rating >= 1.5 ? starUrlHalf : starUrlEmpty} alt="star" />
-        <img src={ rating >= 3 ? starUrlFilled : rating >= 2.5 ? starUrlHalf : starUrlEmpty} alt="star" />
-        <img src={ rating >= 4 ? starUrlFilled : rating >= 3.5 ? starUrlHalf : starUrlEmpty} alt="star" />
-        <img src={ rating === 5 ? starUrlFilled : rating >= 4.5 ? starUrlHalf : starUrlEmpty} alt="star" />
-      </p>
+      <ul className={styles.ratingContainer}>
+                {[...new Array(Math.round(rating - 0.5))].map(() => {
+                  return (
+                    <li className={styles.ratingStar}>
+                      <img src={starUrlFilled} alt="star" />
+                    </li>
+                  );
+                })}
+                {rating % 1 >= 0.5 ? (
+                  <li className={styles.ratingStar}>
+                    <img src={starUrlHalf} alt="star" />
+                    <img
+                      className={styles.left6px}
+                      src={starUrlEmpty}
+                      alt="star"
+                    />
+                  </li>
+                ) : (
+                  <></>
+                )}
+                {[...new Array(Math.round(4.95 - rating))].map(() => {
+                  return (
+                    <li className={styles.ratingStar}>
+                      <img src={starUrlEmpty} alt="star" />
+                    </li>
+                  );
+                })}
+                <li className={styles.numeral}>{`[${rating}]`}</li>
+              </ul>
       <p>launch date: <strong>{launchDate}</strong></p>
       <div className={styles.player}>
         <Video url={videoLink} preview={`${previewImageLink}/lesson-1.webp`}/>
