@@ -1,0 +1,115 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 50px;
+  @media (min-width: 900px) {
+    padding-top: 92px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    @media (min-width: 900px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .about {
+      margin-top: 2.75rem;
+      color: rgb(0 0 0);
+      @media (min-width: 900px) {
+        margin-top: 0;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 2rem;
+
+        @media (min-width: 900px) {
+          text-align: left;
+          font-size: 2.25rem;
+          line-height: 2.5rem;
+        }
+      }
+
+      p {
+        -webkit-margin-before: 0;
+        margin-block-start: 0;
+        -webkit-margin-after: 0;
+        margin-block-end: 0;
+        margin-top: 14px;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5rem;
+
+        @media (min-width: 900px) {
+          margin-top: 1.25rem;
+          text-align: left;
+          font-size: 1.125rem;
+          line-height: 1.75rem;
+        }
+      }
+
+      .link {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        background-color: transparent;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        border-radius: 0px;
+        padding: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+        height: 65px;
+        padding: 19px;
+        color: #fff;
+        border-radius: 16px;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 700;
+        font-size: 18px;
+        font-style: normal;
+        line-height: 22px;
+        background: #000;
+        margin-top: 1.25rem;
+        width: 100%;
+        @media (min-width: 900px){
+          margin-top: 84px;
+        }
+      }
+    }
+
+    .picture {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: content-box;
+      width: 100%;
+
+      @media (min-width: 900px) {
+        margin-left: 200px;
+        width: 433px;
+      }
+
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
