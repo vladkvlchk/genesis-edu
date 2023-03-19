@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styles from "./App.module.scss";
 import Course from "./pages/Course";
 import Courses from "./pages/Courses";
+import NotFound from "./pages/NotFound";
 
 const speed = {
   value: 1.0,
@@ -50,6 +51,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Courses />} />
             <Route path="/courses/:courseId" element={<Course />} />
+            <Route path="/:notFound" element={<NotFound />}/>
           </Routes>
         </div>
       </BrowserRouter>
