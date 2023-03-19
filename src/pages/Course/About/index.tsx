@@ -54,7 +54,14 @@ const About: React.FC<AboutType> = ({
         launch date: <strong>{launchDate}</strong>
       </p>
       <div className={styles.player}>
-        <Video url={videoLink} preview={`${previewImageLink}/lesson-1.webp`} />
+        <Video
+          url={videoLink}
+          preview={`${previewImageLink}/lesson-1.webp`}
+          muted={false}
+        />
+        <p className={styles.hint}>
+          Speed Down: <b>Shift</b> + <b>Z</b>; Speed Up: <b>Shift</b> + <b>X</b>
+        </p>
       </div>
 
       <strong className={styles.description}>DESCRIPTION:</strong>

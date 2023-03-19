@@ -52,6 +52,7 @@ const Courses: React.FC = () => {
                       rating={course.rating}
                       skills={course.meta.skills}
                       description={course.description}
+                      videoPreviewUrl={course.meta.courseVideoPreview.link}
                     />
                   );
                 })

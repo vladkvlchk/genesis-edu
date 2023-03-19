@@ -4,7 +4,7 @@ import { SpeedContext } from "../../App";
 
 import styles from "./Video.module.scss";
 
-const Video: React.FC<any> = ({ url, preview }) => {
+const Video: React.FC<any> = ({ url, preview, muted = false, controls = true }) => {
   const speed = React.useContext(SpeedContext)
   const ref = React.useRef(null);
 
@@ -17,7 +17,7 @@ const Video: React.FC<any> = ({ url, preview }) => {
     <div ref={ref} className={styles.player}>
       <ReactPlayer
         url={url}
-        controls={true}
+        controls={controls}
         playing={true}
         pip={true}
         // light={preview}
@@ -26,8 +26,8 @@ const Video: React.FC<any> = ({ url, preview }) => {
         playbackRate={speed.value}
         onPlay={() => focusItself()}
         onStart={() => console.log('start')}
+        muted={muted}
       />
-      <p className={styles.hint}>Speed up: <b>Shift</b> + <b>Z</b>; Speed Down: <b>Shift</b> + <b>X</b></p>
     </div>
   );
 };

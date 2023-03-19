@@ -37,6 +37,11 @@
 
   .player {
     margin: 32px;
+    .hint {
+      transform: translateX(-50%);
+      margin-left: 50%;
+      width: fit-content;
+    }
   }
 }
 
@@ -72,8 +77,8 @@
 }
 
 video {
-  margin: 30px !important;
-  width: calc(100% - 60px) !important;
+  // margin: 30px !important;
+  // width: calc(100% - 60px) !important;
   height: auto !important;
 }
 

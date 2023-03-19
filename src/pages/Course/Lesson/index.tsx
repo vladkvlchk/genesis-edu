@@ -8,7 +8,10 @@ const Lesson: React.FC<LessonType> = ({link, order, previewImageLink, title}) =>
     <div className={styles.page}>
       <h1>{title}</h1>
       <div className={styles.player}>
-        <Video url={link} preview={previewImageLink + '/' + order + '.webp'}/>  
+        <Video url={link} preview={previewImageLink + '/' + order + '.webp'} muted={false}/>
+        <p className={styles.hint}>
+          Speed Down: <b>Shift</b> + <b>Z</b>; Speed Up: <b>Shift</b> + <b>X</b>
+        </p>
       </div>
     </div>
   );

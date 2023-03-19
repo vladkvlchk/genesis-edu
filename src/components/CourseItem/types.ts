@@ -1,4 +1,4 @@
-export interface Course {
+export interface CourseItemType {
     id: string;
     title: string;
     previewImageLink: string;
@@ -6,4 +6,5 @@ export interface Course {
     description: string;
     rating: number;
     skills: string[];
+    videoPreviewUrl: string;
   }

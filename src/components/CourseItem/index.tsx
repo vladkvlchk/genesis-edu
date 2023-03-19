@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./CourseItem.module.scss";
-import skillUrl from "../../accepts/check_circle.svg";
 import starUrlFilled from "../../accepts/star_filled.svg";
 import starUrlHalf from "../../accepts/star_half.svg";
 import starUrlEmpty from "../../accepts/star_empty.svg";
-import { Course } from "./types";
+import { CourseItemType } from "./types";
+import Video from "../Video";
 
-const CourseItem: React.FC<Course> = ({
+const CourseItem: React.FC<CourseItemType> = ({
   id,
   title,
   previewImageLink,
@@ -16,16 +16,23 @@ const CourseItem: React.FC<Course> = ({
   rating,
   skills,
   description,
+  videoPreviewUrl
 }) => {
+  const [isHovered, setIsHovered] = React.useState<boolean>(false);
+  // const testUrl = 'https://cdn.bitmovin.com/content/assets/art-of-motion-dash-hls-progressive/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8'
   return (
-    <div className={styles.item}>
+    <div className={styles.item} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
       <Link className={styles.link} to={`courses/${id}`}>
         <picture className={styles.imageContainer}>
-          <img
-            src={previewImageLink + "/cover.webp"}
-            className={styles.mainPhoto}
-            alt="[course]"
-          />
+          {isHovered ? (
+            <Video src={videoPreviewUrl} muted={true} controls={false}/>
+          ) : (
+            <img
+              src={previewImageLink + "/cover.webp"}
+              className={styles.mainPhoto}
+              alt="[course]"
+            />
+          )}
         </picture>
         <div className={styles.about}>
           <h5>{title}</h5>
@@ -77,17 +84,6 @@ const CourseItem: React.FC<Course> = ({
               </ul>
             </div>
           </div>
-          {/* <p className={styles.lessonsAmount}>lessons: {lessonsCount}</p> */}
-          {/* </p> */}
-          {/* {skills && <p className={styles.pCenter}>Skills: </p>} */}
-          {/* {skills?.map((skill) => {
-            return (
-              <div key={skill} className={styles.skill}>
-                <img src={skillUrl} alt="skill" height={'180px'}/>
-                <p>{skill}</p>
-              </div>
-            );
-          })} */}
         </div>
       </Link>
     </div>
