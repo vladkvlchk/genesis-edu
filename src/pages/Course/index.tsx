@@ -99,7 +99,7 @@ const Course: React.FC = () => {
               title={aboutCourse?.title}
               tags={aboutCourse?.tags}
               launchDate={aboutCourse?.launchDate}
-              videoLink={aboutCourse?.meta.courseVideoPreview.link}
+              videoLink={aboutCourse?.meta?.courseVideoPreview?.link}
               description={aboutCourse?.description}
               rating={aboutCourse.rating}
               skills={aboutCourse.meta.skills}
